@@ -1,45 +1,36 @@
-export type Ministry = {
+export type MinistrySection = {
   title: string;
-  description: string;
-  note?: string;
+  items: string[];
 };
 
 export const ministriesContent = {
   eyebrow: "Get involved",
-  title: "Find your place in the parish",
+  title: "Our core ministries",
   intro:
-    "Each of these needs to be confirmed as real/active before publishing — built as a reasonable structure based on what similar parishes run.",
-  ministries: [
+    "The heart of parish life happens in three places: the Holy Raza, Bible Study, and Friday Night Preaching. Everything else grows out of these.",
+  sections: [
     {
-      title: "Sunday School",
-      description:
-        "Faith formation and scripture for children, running alongside the main service.",
+      title: "Liturgy",
+      items: [
+        "Sunday Holy Raza — 8:30am",
+        "Accessible Liturgy — 2nd Sunday of every month, 5:00pm (see Visit Us for details)",
+      ],
     },
     {
-      title: "Youth Group",
-      description:
-        "Fellowship and discipleship for teens and young adults, including the Wednesday Bible study.",
+      title: "Bible Studies",
+      items: [
+        "Adult Bible Study — Wednesdays, 7:30pm, Saint Narsai Assyrian Christian College",
+        "Senior Youth Bible Study — Tuesdays, 7:30pm, Saint Narsai Assyrian Christian College",
+        "Junior Youth Bible Study — term time, paused during school holidays [confirm regular day/time]",
+      ],
     },
     {
-      title: "Choir",
-      description: "Leading sacred music and hymns in worship.",
+      title: "Friday Night Preaching",
+      items: [
+        "Fridays, 7:00pm — a weekly teaching series open to all, no background or church experience required.",
+      ],
     },
-    {
-      title: "Altar Servers",
-      description:
-        "Training and serving in the Holy Raza for confirmed members.",
-    },
-    {
-      title: "Community & Welfare",
-      description:
-        "Practical care for parish families: meals, visitation, and support in hard seasons.",
-    },
-    {
-      title: "Women's / Men's Fellowship",
-      description: "[confirm whether these exist]",
-      note: "To be confirmed with parish council.",
-    },
-  ] satisfies Ministry[],
+  ] satisfies MinistrySection[],
   footerNote:
-    "Each group page should have: what it does, who it's for, when it meets, and a single contact (name or shared parish email) to reach out to.",
+    "Also part of parish life, but kept low-key on the site rather than built out as full ministry pages: Sunday School and Women's Fellowship.",
 };

@@ -2,6 +2,7 @@ import { ServiceStrip } from "@/components/layout/ServiceStrip";
 import { BelieveBand } from "@/components/sections/BelieveBand";
 import { GiveTeaser } from "@/components/sections/GiveTeaser";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { MinistriesTeaser } from "@/components/sections/MinistriesTeaser";
 import { VisitStepsSection } from "@/components/sections/VisitStepsSection";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -19,6 +20,7 @@ export default function HomePage() {
       <ServiceStrip />
       <VisitStepsSection />
       <BelieveBand />
+      <MinistriesTeaser />
       <GiveTeaser />
     </>
   );

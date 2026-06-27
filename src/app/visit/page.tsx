@@ -23,7 +23,10 @@ export default function VisitPage() {
               <h2 className="font-display text-xl">{visitContent.serviceTimesTitle}</h2>
               <ul className="mt-4 space-y-4">
                 {siteConfig.serviceTimes.map((service) => (
-                  <li key={service.day} className="border-b border-oxblood/10 pb-4 last:border-b-0 last:pb-0">
+                  <li
+                    key={`${service.day}-${service.name}`}
+                    className="border-b border-oxblood/10 pb-4 last:border-b-0 last:pb-0"
+                  >
                     <div className="font-semibold text-ink">
                       {service.day} — {service.name}
                     </div>
@@ -31,19 +34,40 @@ export default function VisitPage() {
                       {service.time}
                       {"note" in service && service.note ? ` (${service.note})` : ""}
                     </div>
+                    {"location" in service && (
+                      <div className="mt-1 text-sm text-ink-soft">{service.location}</div>
+                    )}
                   </li>
                 ))}
               </ul>
             </Card>
 
             <div className="prose-sppc">
-              <h2 className="font-display text-xl text-ink">{visitContent.whatToExpectTitle}</h2>
+              <h2 className="font-display text-xl text-ink">
+                {visitContent.holyRazaNoteTitle}
+              </h2>
+              {visitContent.holyRazaNote.map((paragraph) => (
+                <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+              ))}
+
+              <h2 className="font-display text-xl text-ink">
+                {visitContent.accessibleLiturgyTitle}
+              </h2>
+              <p>{visitContent.accessibleLiturgy}</p>
+
+              <h2 className="font-display text-xl text-ink">
+                {visitContent.whatToExpectTitle}
+              </h2>
               <p>{visitContent.whatToExpect}</p>
 
-              <h2 className="font-display text-xl text-ink">{visitContent.gettingHereTitle}</h2>
+              <h2 className="font-display text-xl text-ink">
+                {visitContent.gettingHereTitle}
+              </h2>
               <p>{visitContent.gettingHere}</p>
 
-              <h2 className="font-display text-xl text-ink">{visitContent.firstTimeTitle}</h2>
+              <h2 className="font-display text-xl text-ink">
+                {visitContent.firstTimeTitle}
+              </h2>
               <p>{visitContent.firstTime}</p>
             </div>
           </div>

@@ -12,25 +12,25 @@ export const homeContent = {
     eyebrow: "Plan your visit",
     title: "Three steps, no guesswork.",
     description:
-      "Like the cross of the Church of the East standing on three steps at Golgotha, visiting us is just three simple ones.",
+      "Like the cross of the Church of the East standing on three steps at Golgotha, visiting us is just three simple ones. If it's your first time, we'd suggest starting with Bible Study or Friday Night Preaching — they're built for exactly that.",
     steps: [
       {
         number: "STEP ONE",
-        title: "Choose a service",
+        title: "Start with Bible Study or Friday Preaching",
         description:
-          "Join us for Sunday morning Holy Raza (Divine Liturgy) at 9:00am, or come along to Wednesday Bible study or Friday evening preaching — all in English, all welcome.",
+          "Join us Wednesdays at 7:30pm for Adult Bible Study, or Fridays at 7:00pm for our weekly preaching night — no background needed, just come and ask questions. (The Sunday Holy Raza is our central act of worship, and you're welcome to attend and observe — Holy Communion within it is reserved for those baptised in an apostolic church.)",
       },
       {
         number: "STEP TWO",
         title: "Find your way",
         description:
-          "We're at 32–40 Kosovich Place, Cecil Park, with parking on site. Arrive a few minutes early — someone will be at the door to greet you.",
+          "The Holy Raza is held at 32–40 Kosovich Place, Cecil Park, with parking on site. Bible Studies are held at Saint Narsai Assyrian Christian College — check the address before you head out.",
       },
       {
         number: "STEP THREE",
         title: "Come as you are",
         description:
-          "No dress code, no expectations. Families and children are part of every service. Stay after for tea and a chance to meet people.",
+          "No dress code, no expectations. Families and children are part of parish life. Stay after for tea and a chance to meet people.",
       },
     ],
     cta: { label: "Full visit guide", href: "/visit" },
@@ -51,11 +51,33 @@ export const homeContent = {
           "Our liturgy, the Holy Raza, draws directly from the words and language of the early church, translated faithfully into English for our community today.",
       },
       {
-        title: "One faith, every generation",
+        title: "One faith, plainly stated",
         description:
-          "We hold to the historic Christian creeds while building a community where English-speaking families, young people, and newcomers all belong.",
+          "The Nicene Creed is a mirror of our faith — exactly what we believe, with nothing added and nothing left out. We hold to it fully, alongside the apostolic worship and tradition it has guarded for centuries.",
       },
     ],
+  },
+  ministriesTeaser: {
+    eyebrow: "Core ministries",
+    title: "Where parish life happens.",
+    cards: [
+      {
+        title: "Liturgy",
+        description:
+          "Sunday Holy Raza, 8:30am — plus our Accessible Liturgy on the 2nd Sunday of every month, 5:00pm.",
+      },
+      {
+        title: "Bible studies",
+        description:
+          "Adult Bible Study Wednesdays 7:30pm, Senior Youth Tuesdays 7:30pm — both at Saint Narsai Assyrian Christian College.",
+      },
+      {
+        title: "Friday Night Preaching",
+        description:
+          "A weekly teaching night, 7:00pm — open to everyone, no church background required.",
+      },
+    ],
+    cta: { label: "Our ministries", href: "/ministries" },
   },
   give: {
     eyebrow: "Support the parish",

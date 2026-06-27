@@ -16,7 +16,8 @@ export const mainNav: NavLink[] = [
   },
   { label: "Visit", href: "/visit" },
   { label: "Ministries", href: "/ministries" },
-  { label: "News", href: "/news" },
+  { label: "Sacraments", href: "/sacraments" },
+  { label: "Guest Guide", href: "/guest-guide" },
   { label: "Give", href: "/give" },
   { label: "Contact", href: "/contact" },
 ];
@@ -27,6 +28,6 @@ export const footerExploreLinks = [
   { label: "What we believe", href: "/about/what-we-believe" },
   { label: "Ministries", href: "/ministries" },
   { label: "Sacraments", href: "/sacraments" },
+  { label: "Guest guide", href: "/guest-guide" },
   { label: "Give", href: "/give" },
-  { label: "News & events", href: "/news" },
 ];

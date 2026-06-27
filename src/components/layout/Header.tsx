@@ -14,7 +14,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-oxblood/15 bg-parchment">
       <div className="border-b border-oxblood/10 bg-oxblood px-4 py-2 text-center text-sm text-parchment md:hidden">
-        <span className="font-semibold">Sunday Holy Raza · 9:00am</span>
+        <span className="font-semibold">Sunday Holy Raza · 8:30am</span>
         {" · "}
         <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`} className="underline">
           {siteConfig.phoneDisplay}

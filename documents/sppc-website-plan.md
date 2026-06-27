@@ -24,18 +24,19 @@ Answer three questions fast: *Who are you? What do you believe? How do I show up
 - **Home** — hero (church photo), next service time countdown, short "what to expect" line, 3 CTAs: Plan a Visit / About Us / Watch Online
 - **About**
   - Who We Are — parish history, photo of the building
-  - What We Believe — plain-English intro to the Holy Apostolic Catholic Assyrian Church of the East (apostolic origin, Church of the East tradition, distinct from Roman Catholic/Orthodox — most visitors won't know this)
-  - Our Bishop & Clergy — Archdiocese of Australia, NZ & Lebanon context, parish priest(s)
+  - What We Believe — the Nicene Creed, displayed in full as the centrepiece of the page, alongside a short description of the apostolic tradition
+  - Our Bishop & Clergy — Archdiocese of Australia, NZ & Lebanon context, parish priest and clergy list
 - **Visit Us**
-  - Service times (Holy Raza/Divine Liturgy, Bible study, preaching nights)
-  - What to expect (dress, language — services are in English, kids/families welcome)
+  - Service times (Holy Raza, Accessible Liturgy, Bible Studies, Friday Night Preaching)
+  - What to expect, including a clear note on who the Holy Raza's Communion is reserved for, and that newcomers are best invited via Bible Study or Friday Night Preaching
   - Map + parking + address (32-40 Kosovich Place, Cecil Park)
-- **Ministries & Groups** — youth, Sunday school, choir, men's/women's groups, etc. (placeholder structure until you confirm which exist)
+- **Ministries** — the three core ministries only: Liturgy, Bible Studies, Friday Night Preaching (kept deliberately narrow — see plan notes below)
 - **Sacraments & Life Events** — baptism, marriage, funerals — what to do and who to contact
-- **News & Events** — simple blog/feed: liturgical feasts, parish news, fundraisers
-- **Sermons/Media** *(optional, phase 1.5)* — embedded YouTube/Facebook livestream archive
-- **Give** — online giving link/info (even just a clear "how to donate" page is a big upgrade from nothing)
+- **Guest Guide** — a short page for baptism/wedding guests on what to expect and what's expected of them in the house of God
+- **Give** — online giving link/info
 - **Contact** — form, phone, email, social links
+
+*(No News & Events page — the parish doesn't want the ongoing burden of posting events, and the site is built around what's steady, not what's on this week.)*
 
 ### Tone & content principles
 - Write for someone who has never heard of the Assyrian Church of the East. Don't assume insider knowledge.
