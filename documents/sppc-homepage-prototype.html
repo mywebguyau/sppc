@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sts Peter & Paul — Cecil Park</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --oxblood:#6E1E2B;
+    --oxblood-dark:#4E1521;
+    --gold:#C8A24A;
+    --gold-light:#E4CD8E;
+    --parchment:#F2EBDC;
+    --parchment-card:#FBF8F0;
+    --ink:#2A2420;
+    --indigo:#233B53;
+    --ink-soft:#5C5246;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Source Sans 3', sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--oxblood);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--parchment);
+    border-bottom:1px solid rgba(110,30,43,0.15);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px; max-width:1100px; margin:0 auto;
+  }
+  .logo{display:flex; align-items:center; gap:10px;}
+  .logo svg{width:30px; height:30px;}
+  .logo-text{font-family:'Fraunces', serif; font-size:18px; font-weight:600; line-height:1.1;}
+  .logo-text span{display:block; font-size:11px; font-weight:400; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft);}
+  .navlinks{display:none; gap:28px; font-size:14px; font-weight:500;}
+  .navlinks a{padding:4px 0; border-bottom:2px solid transparent;}
+  .navlinks a:hover{border-bottom-color:var(--gold);}
+  .nav-cta{
+    background:var(--oxblood); color:#fff; padding:10px 18px;
+    border-radius:3px; font-size:14px; font-weight:600; letter-spacing:0.02em;
+    white-space:nowrap;
+  }
+  @media(min-width:840px){ .navlinks{display:flex;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--oxblood);
+    color:#F2EBDC;
+    overflow:hidden;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1fr; align-items:center;
+    max-width:1100px; margin:0 auto; padding:64px 24px 56px;
+    gap:40px;
+  }
+  @media(min-width:880px){ .hero-grid{grid-template-columns:1.1fr 0.9fr; padding:88px 24px 72px;} }
+  .hero h1{
+    font-size:clamp(34px,5vw,54px);
+    line-height:1.08;
+    color:#FBF8F0;
+    margin:18px 0 20px;
+  }
+  .hero h1 em{font-style:italic; color:var(--gold-light);}
+  .hero p{font-size:18px; color:#E7D9C9; max-width:480px; margin-bottom:30px;}
+  .hero .eyebrow{color:var(--gold-light);}
+  .hero-ctas{display:flex; flex-wrap:wrap; gap:14px;}
+  .btn-primary{
+    background:var(--gold); color:var(--oxblood-dark); font-weight:600;
+    padding:14px 26px; border-radius:3px; font-size:15px;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-secondary{
+    border:1.5px solid rgba(242,235,220,0.45); color:#F2EBDC; font-weight:600;
+    padding:14px 26px; border-radius:3px; font-size:15px;
+  }
+  .hero-art{display:flex; justify-content:center; align-items:center;}
+  .hero-art svg{width:100%; max-width:280px;}
+
+  /* ---------- NEXT SERVICE STRIP ---------- */
+  .strip{
+    background:var(--parchment-card);
+    border-bottom:1px solid rgba(110,30,43,0.12);
+  }
+  .strip-inner{
+    max-width:1100px; margin:0 auto; padding:22px 24px;
+    display:flex; flex-wrap:wrap; gap:24px; align-items:center; justify-content:space-between;
+  }
+  .strip-item{display:flex; gap:14px; align-items:flex-start;}
+  .strip-item .label{font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); font-weight:600; margin-bottom:2px;}
+  .strip-item .value{font-size:16px; font-weight:600; color:var(--ink);}
+  .strip-divider{width:1px; height:34px; background:rgba(42,36,32,0.15); display:none;}
+  @media(min-width:700px){ .strip-divider{display:block;} }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:72px 0;}
+  .section-head{max-width:620px; margin-bottom:40px;}
+  .section-head h2{font-size:clamp(26px,3.4vw,36px); margin-top:14px;}
+  .section-head p{color:var(--ink-soft); font-size:16.5px; margin-top:14px;}
+
+  /* signature divider: three-step cross motif */
+  .step-divider{display:flex; justify-content:center; padding:8px 0 0;}
+  .step-divider svg{width:120px; height:48px;}
+
+  /* ---------- WELCOME ---------- */
+  .welcome{display:grid; grid-template-columns:1fr; gap:36px;}
+  @media(min-width:880px){ .welcome{grid-template-columns:1fr 1fr;} }
+  .welcome p{font-size:17px; color:var(--ink-soft); margin-bottom:16px;}
+  .welcome p strong{color:var(--ink); font-weight:600;}
+  .pillquote{
+    border-left:3px solid var(--gold);
+    padding-left:20px; font-family:'Fraunces', serif; font-size:21px;
+    font-style:italic; color:var(--indigo); line-height:1.5;
+  }
+
+  /* ---------- VISIT STEPS ---------- */
+  .steps{display:grid; grid-template-columns:1fr; gap:24px;}
+  @media(min-width:760px){ .steps{grid-template-columns:repeat(3,1fr);} }
+  .step-card{
+    background:var(--parchment-card); border:1px solid rgba(110,30,43,0.12);
+    border-radius:4px; padding:28px 24px; position:relative;
+  }
+  .step-num{
+    font-family:'Fraunces', serif; font-size:14px; font-weight:600;
+    color:var(--gold); letter-spacing:0.04em; margin-bottom:14px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .step-card h3{font-size:19px; margin-bottom:8px;}
+  .step-card p{font-size:15px; color:var(--ink-soft);}
+
+  /* ---------- BELIEVE BAND ---------- */
+  .believe{background:var(--indigo); color:#EDE7DA;}
+  .believe .wrap{display:grid; grid-template-columns:1fr; gap:32px;}
+  @media(min-width:880px){ .believe .wrap{grid-template-columns:0.8fr 1.2fr; align-items:center;} }
+  .believe .eyebrow{color:var(--gold-light);}
+  .believe h2{color:#FBF8F0; font-size:clamp(26px,3.4vw,34px); margin-top:14px;}
+  .believe-points{display:grid; gap:18px;}
+  .believe-points .pt{display:flex; gap:14px;}
+  .believe-points .pt .dot{width:8px; height:8px; border-radius:50%; background:var(--gold); margin-top:8px; flex-shrink:0;}
+  .believe-points .pt p{color:#D8CFC0; font-size:15.5px;}
+  .believe-points .pt strong{color:#FBF8F0; display:block; margin-bottom:3px; font-size:16px;}
+  .believe a.link{color:var(--gold-light); font-weight:600; font-size:15px; margin-top:18px; display:inline-block; border-bottom:1px solid rgba(228,205,142,0.4);}
+
+  /* ---------- MINISTRIES ---------- */
+  .min-grid{display:grid; grid-template-columns:1fr; gap:20px;}
+  @media(min-width:700px){ .min-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(min-width:1000px){ .min-grid{grid-template-columns:repeat(4,1fr);} }
+  .min-card{
+    background:var(--parchment-card); border:1px solid rgba(110,30,43,0.12);
+    border-radius:4px; padding:22px;
+  }
+  .min-card .icon{width:34px; height:34px; margin-bottom:14px;}
+  .min-card h3{font-size:16.5px; margin-bottom:6px;}
+  .min-card p{font-size:14px; color:var(--ink-soft);}
+
+  /* ---------- GIVE / CTA ---------- */
+  .give{
+    background:var(--oxblood); color:#F2EBDC; border-radius:6px;
+    padding:48px 36px; display:grid; gap:28px; align-items:center;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:840px){ .give{grid-template-columns:1.3fr 0.7fr;} }
+  .give h2{color:#FBF8F0; font-size:clamp(24px,3vw,30px);}
+  .give p{color:#E7D9C9; margin-top:12px; font-size:16px; max-width:420px;}
+  .give-actions{display:flex; flex-direction:column; gap:12px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--oxblood-dark); color:#D8CFC0; padding:56px 0 28px;}
+  .foot-grid{display:grid; grid-template-columns:1fr; gap:36px;}
+  @media(min-width:760px){ .foot-grid{grid-template-columns:1.3fr 1fr 1fr;} }
+  footer h4{color:#F2EBDC; font-size:14px; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:16px; font-weight:600;}
+  footer .foot-logo{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  footer .foot-logo svg{width:26px; height:26px;}
+  footer .foot-logo span{font-family:'Fraunces', serif; font-size:18px; color:#F2EBDC; font-weight:600;}
+  footer p{font-size:14.5px; color:#C2B7A6; line-height:1.7;}
+  footer ul{list-style:none;}
+  footer li{margin-bottom:10px; font-size:14.5px;}
+  footer a:hover{color:var(--gold-light);}
+  .foot-bottom{
+    border-top:1px solid rgba(242,235,220,0.12); margin-top:40px; padding-top:20px;
+    font-size:13px; color:#A89C8A; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="3" fill="#6E1E2B"/>
+        <path d="M20 7v18M14 13h12M11 25h18M9 30h22M7 34h26" stroke="#C8A24A" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <div class="logo-text">Sts Peter & Paul<span>Assyrian Church of the East</span></div>
+    </div>
+    <nav class="navlinks">
+      <a href="#about">About</a>
+      <a href="#visit">Visit</a>
+      <a href="#believe">Beliefs</a>
+      <a href="#ministries">Ministries</a>
+      <a href="#give">Give</a>
+    </nav>
+    <a href="#visit" class="nav-cta">Plan a visit</a>
+  </div>
+</header>
+
+<section class="hero" style="padding:0;">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow">
+        <svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1v12M3 5h8M2 9.5h10M1 12h12" stroke="#E4CD8E" stroke-width="1.3" stroke-linecap="round"/></svg>
+        Cecil Park, NSW · Apostolic since the first century
+      </p>
+      <h1>An ancient church.<br><em>A welcome made for you.</em></h1>
+      <p>Sts Peter &amp; Paul is an English-speaking parish of the Holy Apostolic Catholic Assyrian Church of the East — a tradition tracing back to the apostles, alive and gathering in Cecil Park every week.</p>
+      <div class="hero-ctas">
+        <a href="#visit" class="btn-primary">Plan your visit →</a>
+        <a href="#about" class="btn-secondary">What we believe</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="95" r="78" stroke="#C8A24A" stroke-width="0.75" opacity="0.35"/>
+        <circle cx="100" cy="95" r="60" stroke="#C8A24A" stroke-width="0.75" opacity="0.5"/>
+        <path d="M100 30v110" stroke="#E4CD8E" stroke-width="3" stroke-linecap="round"/>
+        <path d="M68 65h64" stroke="#E4CD8E" stroke-width="3" stroke-linecap="round"/>
+        <rect x="50" y="170" width="100" height="10" rx="1" fill="#C8A24A"/>
+        <rect x="60" y="184" width="80" height="10" rx="1" fill="#C8A24A" opacity="0.85"/>
+        <rect x="70" y="198" width="60" height="10" rx="1" fill="#C8A24A" opacity="0.7"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-inner">
+    <div class="strip-item">
+      <div>
+        <div class="label">Next Holy Raza</div>
+        <div class="value">Sunday · 9:00am</div>
+      </div>
+    </div>
+    <div class="strip-divider"></div>
+    <div class="strip-item">
+      <div>
+        <div class="label">Bible study</div>
+        <div class="value">Wednesday · 8:00pm</div>
+      </div>
+    </div>
+    <div class="strip-divider"></div>
+    <div class="strip-item">
+      <div>
+        <div class="label">English preaching</div>
+        <div class="value">Friday · 8:00pm</div>
+      </div>
+    </div>
+    <div class="strip-divider"></div>
+    <div class="strip-item">
+      <div>
+        <div class="label">Find us</div>
+        <div class="value">32–40 Kosovich Place</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap welcome">
+    <div>
+      <p class="eyebrow">Welcome home</p>
+      <h2 style="margin-top:14px; font-size:clamp(26px,3.4vw,36px);">You don't need to know what a "Holy Raza" is to walk through our doors.</h2>
+    </div>
+    <div>
+      <p>Sts Peter &amp; Paul has been gathering Cecil Park's Assyrian community — and increasingly, anyone curious about the ancient Church of the East — since our doors first opened. <strong>Every service is conducted in English</strong>, the words themselves carried over from the Aramaic that Christ and His apostles spoke.</p>
+      <p>We're a small parish with a big history: apostolic in origin, liturgical in worship, and genuinely warm in how we welcome the people who walk in not knowing what to expect.</p>
+      <p class="pillquote">"I have become all things to all people, so that by all possible means I might save some." — 1 Corinthians 9:22</p>
+    </div>
+  </div>
+</section>
+
+<div class="step-divider">
+  <svg viewBox="0 0 120 48" fill="none"><path d="M60 4v26" stroke="#C8A24A" stroke-width="2" stroke-linecap="round"/><path d="M48 16h24" stroke="#C8A24A" stroke-width="2" stroke-linecap="round"/><rect x="30" y="34" width="60" height="4" fill="#C8A24A"/><rect x="38" y="40" width="44" height="4" fill="#C8A24A" opacity="0.6"/><rect x="46" y="46" width="28" height="2" fill="#C8A24A" opacity="0.35"/></svg>
+</div>
+
+<section id="visit">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Plan your visit</p>
+      <h2>Three steps, no guesswork.</h2>
+      <p>Like the cross of the Church of the East standing on three steps at Golgotha, visiting us is just three simple ones.</p>
+    </div>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">STEP ONE</div>
+        <h3>Choose a service</h3>
+        <p>Join us for Sunday morning Holy Raza (Divine Liturgy) at 9:00am, or come along to Wednesday Bible study or Friday evening preaching — all in English, all welcome.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">STEP TWO</div>
+        <h3>Find your way</h3>
+        <p>We're at 32–40 Kosovich Place, Cecil Park, with parking on site. Arrive a few minutes early — someone will be at the door to greet you.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">STEP THREE</div>
+        <h3>Come as you are</h3>
+        <p>No dress code, no expectations. Families and children are part of every service. Stay after for tea and a chance to meet people.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="believe" class="believe">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">What we believe</p>
+      <h2>Apostolic. Liturgical. Unmistakably ancient.</h2>
+      <a href="#" class="link">Read our full statement of faith →</a>
+    </div>
+    <div class="believe-points">
+      <div class="pt"><div class="dot"></div><p><strong>An apostolic church</strong>The Holy Apostolic Catholic Assyrian Church of the East traces its founding to the apostles Thomas, Bartholomew, and Addai — among the oldest continuous Christian traditions in the world.</p></div>
+      <div class="pt"><div class="dot"></div><p><strong>Worship rooted in scripture</strong>Our liturgy, the Holy Raza, draws directly from the words and language of the early church, translated faithfully into English for our community today.</p></div>
+      <div class="pt"><div class="dot"></div><p><strong>One faith, every generation</strong>We hold to the historic Christian creeds while building a community where English-speaking families, young people, and newcomers all belong.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="ministries">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Get involved</p>
+      <h2>A place to belong, not just attend.</h2>
+    </div>
+    <div class="min-grid">
+      <div class="min-card">
+        <svg class="icon" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="11" r="5" stroke="#6E1E2B" stroke-width="1.6"/><path d="M6 28c0-6 5-10 11-10s11 4 11 10" stroke="#6E1E2B" stroke-width="1.6"/></svg>
+        <h3>Sunday school</h3>
+        <p>Scripture and faith formation for children, alongside the main service each week.</p>
+      </div>
+      <div class="min-card">
+        <svg class="icon" viewBox="0 0 34 34" fill="none"><path d="M8 24V10l9-5 9 5v14" stroke="#6E1E2B" stroke-width="1.6"/><path d="M8 24h18M14 24v-8h6v8" stroke="#6E1E2B" stroke-width="1.6"/></svg>
+        <h3>Youth group</h3>
+        <p>Fellowship, discussion, and discipleship for teens and young adults.</p>
+      </div>
+      <div class="min-card">
+        <svg class="icon" viewBox="0 0 34 34" fill="none"><path d="M9 23c0-7 3.6-13 8-13s8 6 8 13" stroke="#6E1E2B" stroke-width="1.6"/><path d="M6 23h22" stroke="#6E1E2B" stroke-width="1.6"/></svg>
+        <h3>Choir & hymns</h3>
+        <p>Sacred music carrying the church's ancient melodies into English worship.</p>
+      </div>
+      <div class="min-card">
+        <svg class="icon" viewBox="0 0 34 34" fill="none"><path d="M7 12l10-7 10 7v13H7z" stroke="#6E1E2B" stroke-width="1.6"/><path d="M14 25v-7h6v7" stroke="#6E1E2B" stroke-width="1.6"/></svg>
+        <h3>Community & welfare</h3>
+        <p>Practical support for parish families — visitation, meals, and care in hard seasons.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="give">
+  <div class="wrap">
+    <div class="give">
+      <div>
+        <p class="eyebrow" style="color:#E4CD8E;">Support the parish</p>
+        <h2>Your giving keeps this community running — and growing.</h2>
+        <p>From the building you're sitting in to the ministries that hold our families together, everything here is sustained by the people who call this parish home.</p>
+      </div>
+      <div class="give-actions">
+        <a href="#" class="btn-primary" style="justify-content:center;">Give online →</a>
+        <a href="#" class="btn-secondary" style="text-align:center;">Other ways to give</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <div class="foot-logo">
+        <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="3" fill="#C8A24A"/><path d="M20 7v18M14 13h12M11 25h18M9 30h22M7 34h26" stroke="#4E1521" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span>Sts Peter & Paul</span>
+      </div>
+      <p>32–40 Kosovich Place<br>Cecil Park NSW 2178, Australia</p>
+      <p style="margin-top:10px;">A parish of the Holy Apostolic Catholic<br>Assyrian Church of the East, Archdiocese of<br>Australia, New Zealand &amp; Lebanon.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#about">About us</a></li>
+        <li><a href="#visit">Plan a visit</a></li>
+        <li><a href="#believe">What we believe</a></li>
+        <li><a href="#ministries">Ministries</a></li>
+        <li><a href="#give">Give</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:sppc@assyrianchurch.org.au">sppc@assyrianchurch.org.au</a></li>
+        <li><a href="tel:+61406117773">+61 406 117 773</a></li>
+        <li><a href="#">Facebook</a> &nbsp;·&nbsp; <a href="#">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© Sts Peter & Paul Assyrian Church of the East, Cecil Park.</span>
+    <span>Built with care for the parish.</span>
+  </div>
+</footer>
+
+</body>
+</html>

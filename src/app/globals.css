@@ -1,26 +1,95 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --oxblood: #6e1e2b;
+  --oxblood-dark: #4e1521;
+  --gold: #c8a24a;
+  --gold-light: #e4cd8e;
+  --parchment: #f2ebdc;
+  --parchment-card: #fbf8f0;
+  --ink: #2a2420;
+  --indigo: #233b53;
+  --ink-soft: #5c5246;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-oxblood: var(--oxblood);
+  --color-oxblood-dark: var(--oxblood-dark);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-parchment: var(--parchment);
+  --color-parchment-card: var(--parchment-card);
+  --color-ink: var(--ink);
+  --color-indigo: var(--indigo);
+  --color-ink-soft: var(--ink-soft);
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-source-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: var(--font-source-sans), sans-serif;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-fraunces), serif;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.prose-sppc {
+  color: var(--ink-soft);
+  font-size: 1.0625rem;
+}
+
+.prose-sppc p {
+  margin-bottom: 1rem;
+}
+
+.prose-sppc p:last-child {
+  margin-bottom: 0;
+}
+
+.prose-sppc strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.prose-sppc ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0;
+}
+
+.prose-sppc ul li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-sppc ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.prose-sppc h3 {
+  font-size: 1.125rem;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
 }

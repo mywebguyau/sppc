@@ -1,0 +1,26 @@
+import { siteConfig } from "@/content/site";
+
+export function ServiceStrip() {
+  return (
+    <div className="border-b border-oxblood/12 bg-parchment-card">
+      <div className="mx-auto flex max-w-[1100px] flex-wrap items-center justify-between gap-6 px-6 py-5">
+        {siteConfig.services.map((service, index) => (
+          <div key={service.label} className="flex items-center gap-6">
+            {index > 0 && (
+              <div
+                className="hidden h-[34px] w-px bg-ink/15 md:block"
+                aria-hidden="true"
+              />
+            )}
+            <div>
+              <div className="mb-0.5 text-xs font-semibold uppercase tracking-[0.08em] text-ink-soft">
+                {service.label}
+              </div>
+              <div className="text-base font-semibold text-ink">{service.value}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
