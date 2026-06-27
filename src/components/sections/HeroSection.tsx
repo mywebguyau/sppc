@@ -1,5 +1,5 @@
 import { HeroCrossArt } from "@/components/brand/HeroCrossArt";
-import { Button } from "@/components/ui/Button";
+import { LinkButton } from "@/components/ui/link-button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { homeContent } from "@/content/pages/home";
 
@@ -18,12 +18,14 @@ export function HeroSection() {
             <br />
             <em className="text-gold-light italic">{hero.headlineEmphasis}</em>
           </h1>
-          <p className="mt-5 max-w-[480px] text-lg text-[#E7D9C9]">{hero.description}</p>
+          <p className="mt-5 max-w-[480px] text-lg leading-relaxed text-on-dark">
+            {hero.description}
+          </p>
           <div className="mt-7 flex flex-wrap gap-3.5">
-            <Button href={hero.primaryCta.href}>{hero.primaryCta.label} →</Button>
-            <Button href={hero.secondaryCta.href} variant="secondary">
+            <LinkButton href={hero.primaryCta.href}>{hero.primaryCta.label} →</LinkButton>
+            <LinkButton href={hero.secondaryCta.href} variant="hero-outline">
               {hero.secondaryCta.label}
-            </Button>
+            </LinkButton>
           </div>
         </div>
         <div className="flex items-center justify-center">

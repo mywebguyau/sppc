@@ -1,5 +1,21 @@
-import { Card } from "@/components/ui/Card";
+import { InfoIcon } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageHero } from "@/components/ui/PageHero";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { visitContent } from "@/content/pages/visit";
 import { siteConfig } from "@/content/site";
 import { createPageMetadata } from "@/lib/metadata";
@@ -11,68 +27,112 @@ export const metadata = createPageMetadata({
   path: "/visit",
 });
 
+const visitAccordionItems = [
+  {
+    id: "holy-raza",
+    title: visitContent.holyRazaNoteTitle,
+    content: visitContent.holyRazaNote,
+  },
+  {
+    id: "accessible",
+    title: visitContent.accessibleLiturgyTitle,
+    content: [visitContent.accessibleLiturgy],
+  },
+  {
+    id: "expect",
+    title: visitContent.whatToExpectTitle,
+    content: [visitContent.whatToExpect],
+  },
+  {
+    id: "directions",
+    title: visitContent.gettingHereTitle,
+    content: [visitContent.gettingHere],
+  },
+  {
+    id: "first-time",
+    title: visitContent.firstTimeTitle,
+    content: [visitContent.firstTime],
+  },
+] as const;
+
 export default function VisitPage() {
   return (
     <section className="px-6 py-[72px]">
       <div className="mx-auto max-w-[1100px]">
         <PageHero eyebrow={visitContent.eyebrow} title={visitContent.title} />
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1fr]">
+        <Alert className="mt-8 border-oxblood/20 bg-card">
+          <InfoIcon />
+          <AlertTitle>Sunday Holy Raza · 8:30am</AlertTitle>
+          <AlertDescription>
+            New to the parish? Bible Study and Friday Night Preaching are great starting points
+            if you&apos;re not yet familiar with the Holy Raza.
+          </AlertDescription>
+        </Alert>
+
+        <div className="mt-12 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <div className="space-y-8">
             <Card>
-              <h2 className="font-display text-xl">{visitContent.serviceTimesTitle}</h2>
-              <ul className="mt-4 space-y-4">
-                {siteConfig.serviceTimes.map((service) => (
-                  <li
-                    key={`${service.day}-${service.name}`}
-                    className="border-b border-oxblood/10 pb-4 last:border-b-0 last:pb-0"
-                  >
-                    <div className="font-semibold text-ink">
-                      {service.day} — {service.name}
-                    </div>
-                    <div className="text-ink-soft">
-                      {service.time}
-                      {"note" in service && service.note ? ` (${service.note})` : ""}
-                    </div>
-                    {"location" in service && (
-                      <div className="mt-1 text-sm text-ink-soft">{service.location}</div>
-                    )}
-                  </li>
-                ))}
-              </ul>
+              <CardHeader>
+                <CardTitle className="font-display text-xl">
+                  {visitContent.serviceTimesTitle}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="overflow-x-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>When</TableHead>
+                      <TableHead>Service</TableHead>
+                      <TableHead className="hidden sm:table-cell">Where</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {siteConfig.serviceTimes.map((service) => (
+                      <TableRow key={`${service.day}-${service.name}`}>
+                        <TableCell className="font-medium whitespace-nowrap">
+                          {service.day}
+                          <div className="text-meta text-sm font-normal">
+                            {service.time}
+                            {"note" in service && service.note ? ` (${service.note})` : ""}
+                          </div>
+                        </TableCell>
+                        <TableCell>{service.name}</TableCell>
+                        <TableCell className="text-meta hidden text-sm sm:table-cell">
+                          {service.location}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </CardContent>
             </Card>
 
-            <div className="prose-sppc">
-              <h2 className="font-display text-xl text-ink">
-                {visitContent.holyRazaNoteTitle}
-              </h2>
-              {visitContent.holyRazaNote.map((paragraph) => (
-                <p key={paragraph.slice(0, 40)}>{paragraph}</p>
-              ))}
-
-              <h2 className="font-display text-xl text-ink">
-                {visitContent.accessibleLiturgyTitle}
-              </h2>
-              <p>{visitContent.accessibleLiturgy}</p>
-
-              <h2 className="font-display text-xl text-ink">
-                {visitContent.whatToExpectTitle}
-              </h2>
-              <p>{visitContent.whatToExpect}</p>
-
-              <h2 className="font-display text-xl text-ink">
-                {visitContent.gettingHereTitle}
-              </h2>
-              <p>{visitContent.gettingHere}</p>
-
-              <h2 className="font-display text-xl text-ink">
-                {visitContent.firstTimeTitle}
-              </h2>
-              <p>{visitContent.firstTime}</p>
+            <div>
+              <h2 className="font-display text-xl">Plan your visit</h2>
+              <p className="text-meta mt-2">
+                Expand a section below for details on worship, accessibility, and directions.
+              </p>
+              <Accordion type="multiple" className="mt-4 rounded-xl border border-border bg-card px-4">
+                {visitAccordionItems.map((item) => (
+                  <AccordionItem key={item.id} value={item.id}>
+                    <AccordionTrigger className="font-display text-base hover:no-underline">
+                      {item.title}
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="prose-sppc">
+                        {item.content.map((paragraph) => (
+                          <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
           </div>
 
-          <div>
+          <div className="lg:sticky lg:top-24">
             <Card className="overflow-hidden p-0">
               <iframe
                 title="Map to Sts Peter & Paul, Cecil Park"
@@ -83,7 +143,7 @@ export default function VisitPage() {
                 allowFullScreen
               />
             </Card>
-            <p className="mt-4 text-sm text-ink-soft">
+            <p className="text-meta mt-4 text-sm">
               <a
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteConfig.address.full)}`}
                 className="font-semibold text-oxblood underline decoration-gold/50 underline-offset-4"

@@ -14,7 +14,7 @@ export function PageHero({ eyebrow, title, description }: PageHeroProps) {
         {title}
       </h1>
       {description && (
-        <p className="mt-3.5 text-[16.5px] text-ink-soft">{description}</p>
+        <p className="text-meta mt-3.5 max-w-prose text-base">{description}</p>
       )}
     </div>
   );

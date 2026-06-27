@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { StepDivider } from "@/components/brand/StepDivider";
-import { Card } from "@/components/ui/Card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { homeContent } from "@/content/pages/home";
 
@@ -17,17 +17,21 @@ export function VisitStepsSection() {
             <h2 className="mt-3.5 font-display text-[clamp(26px,3.4vw,36px)]">
               {visitSteps.title}
             </h2>
-            <p className="mt-3.5 text-[16.5px] text-ink-soft">{visitSteps.description}</p>
+            <p className="text-meta mt-3.5 text-base">{visitSteps.description}</p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
             {visitSteps.steps.map((step) => (
-              <Card key={step.number} className="p-7">
-                <div className="mb-3.5 flex items-center gap-2 font-display text-sm font-semibold tracking-wide text-gold">
-                  {step.number}
-                </div>
-                <h3 className="mb-2 font-display text-[19px]">{step.title}</h3>
-                <p className="text-[15px] text-ink-soft">{step.description}</p>
+              <Card key={step.number}>
+                <CardHeader>
+                  <p className="font-display text-sm font-semibold tracking-wide text-oxblood">
+                    {step.number}
+                  </p>
+                  <CardTitle className="font-display text-[19px]">{step.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-meta text-[15px]">{step.description}</p>
+                </CardContent>
               </Card>
             ))}
           </div>

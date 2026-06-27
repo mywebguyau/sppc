@@ -5,7 +5,7 @@ import { siteConfig } from "@/content/site";
 
 export function Footer() {
   return (
-    <footer className="mt-auto bg-oxblood-dark px-6 py-14 text-[#D8CFC0]">
+    <footer className="mt-auto bg-oxblood-dark px-6 py-14 text-on-dark-muted">
       <div className="mx-auto grid max-w-[1100px] gap-9 md:grid-cols-[1.3fr_1fr_1fr]">
         <div>
           <div className="mb-3.5 flex items-center gap-2.5">
@@ -14,12 +14,12 @@ export function Footer() {
               {siteConfig.name}
             </span>
           </div>
-          <p className="text-[14.5px] leading-relaxed text-[#C2B7A6]">
+          <p className="text-[14.5px] leading-relaxed text-on-dark">
             {siteConfig.address.street}
             <br />
             {siteConfig.address.suburb}, {siteConfig.address.country}
           </p>
-          <p className="mt-2.5 text-[14.5px] leading-relaxed text-[#C2B7A6]">
+          <p className="mt-2.5 text-[14.5px] leading-relaxed text-on-dark">
             A parish of the Holy Apostolic Catholic
             <br />
             Assyrian Church of the East, {siteConfig.archdiocese}.
@@ -30,7 +30,7 @@ export function Footer() {
           <h4 className="mb-4 text-sm font-semibold uppercase tracking-[0.06em] text-parchment">
             Explore
           </h4>
-          <ul className="space-y-2.5 text-[14.5px]">
+          <ul className="space-y-2.5 text-[14.5px] text-on-dark">
             {footerExploreLinks.map((link) => (
               <li key={link.href}>
                 <Link href={link.href} className="hover:text-gold-light">
@@ -45,7 +45,7 @@ export function Footer() {
           <h4 className="mb-4 text-sm font-semibold uppercase tracking-[0.06em] text-parchment">
             Contact
           </h4>
-          <ul className="space-y-2.5 text-[14.5px]">
+          <ul className="space-y-2.5 text-[14.5px] text-on-dark">
             <li>
               <a href={`mailto:${siteConfig.email}`} className="hover:text-gold-light">
                 {siteConfig.email}
@@ -72,7 +72,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-10 flex max-w-[1100px] flex-wrap justify-between gap-3 border-t border-parchment/12 pt-5 text-[13px] text-[#A89C8A]">
+      <div className="mx-auto mt-10 flex max-w-[1100px] flex-wrap justify-between gap-3 border-t border-parchment/15 pt-5 text-[13px] text-on-dark-muted">
         <span>© {siteConfig.fullName}, {siteConfig.location}.</span>
         <span>Built with care for the parish.</span>
       </div>

@@ -6,7 +6,7 @@ export function BelieveBand() {
   const { believe } = homeContent;
 
   return (
-    <section className="bg-indigo px-6 py-[72px] text-[#EDE7DA]">
+    <section className="bg-indigo px-6 py-[72px] text-on-dark">
       <div className="mx-auto grid max-w-[1100px] gap-8 md:grid-cols-[0.8fr_1.2fr] md:items-center">
         <div>
           <Eyebrow variant="dark">{believe.eyebrow}</Eyebrow>
@@ -15,7 +15,7 @@ export function BelieveBand() {
           </h2>
           <Link
             href={believe.link.href}
-            className="mt-4 inline-block border-b border-gold-light/40 text-[15px] font-semibold text-gold-light hover:border-gold-light"
+            className="mt-4 inline-block border-b border-gold-light/50 text-[15px] font-semibold text-parchment hover:border-gold-light"
           >
             {believe.link.label} →
           </Link>
@@ -28,7 +28,7 @@ export function BelieveBand() {
                 className="mt-2 h-2 w-2 shrink-0 rounded-full bg-gold"
                 aria-hidden="true"
               />
-              <p className="text-[15.5px] text-[#D8CFC0]">
+              <p className="text-[15.5px] leading-relaxed text-on-dark-muted">
                 <strong className="mb-0.5 block text-base text-parchment-card">
                   {point.title}
                 </strong>

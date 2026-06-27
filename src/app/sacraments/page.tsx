@@ -1,4 +1,5 @@
-import { Card } from "@/components/ui/Card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { PageBreadcrumb } from "@/components/ui/PageBreadcrumb";
 import { PageHero } from "@/components/ui/PageHero";
 import { sacramentsContent } from "@/content/pages/sacraments";
 import { siteConfig } from "@/content/site";
@@ -15,32 +16,38 @@ export default function SacramentsPage() {
   return (
     <section className="px-6 py-[72px]">
       <div className="mx-auto max-w-[760px]">
-        <PageHero
-          eyebrow={sacramentsContent.eyebrow}
-          title={sacramentsContent.title}
+        <PageBreadcrumb
+          items={[{ label: "Home", href: "/" }, { label: "Sacraments & Life Events" }]}
         />
+        <PageHero eyebrow={sacramentsContent.eyebrow} title={sacramentsContent.title} />
 
         <div className="mt-10 space-y-5">
           {sacramentsContent.sacraments.map((sacrament) => (
             <Card key={sacrament.title}>
-              <h2 className="font-display text-xl">{sacrament.title}</h2>
-              <p className="prose-sppc mt-3">{sacrament.description}</p>
+              <CardHeader>
+                <CardTitle className="font-display text-xl">{sacrament.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="prose-sppc">
+                <p>{sacrament.description}</p>
+              </CardContent>
             </Card>
           ))}
         </div>
 
-        <div className="prose-sppc mt-8 rounded border border-oxblood/12 bg-parchment-card p-5">
-          <p>
-            <strong>{sacramentsContent.contactNote}</strong>{" "}
-            <a href={`mailto:${siteConfig.email}`} className="text-oxblood">
-              {siteConfig.email}
-            </a>{" "}
-            ·{" "}
-            <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`} className="text-oxblood">
-              {siteConfig.phoneDisplay}
-            </a>
-          </p>
-        </div>
+        <Card className="mt-8 border-oxblood/20">
+          <CardContent className="prose-sppc pt-6">
+            <p>
+              <strong>{sacramentsContent.contactNote}</strong>{" "}
+              <a href={`mailto:${siteConfig.email}`} className="text-oxblood">
+                {siteConfig.email}
+              </a>{" "}
+              ·{" "}
+              <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`} className="text-oxblood">
+                {siteConfig.phoneDisplay}
+              </a>
+            </p>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

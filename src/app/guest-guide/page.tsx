@@ -1,5 +1,7 @@
-import { Card } from "@/components/ui/Card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { PageBreadcrumb } from "@/components/ui/PageBreadcrumb";
 import { PageHero } from "@/components/ui/PageHero";
+import { Separator } from "@/components/ui/separator";
 import { guestGuideContent } from "@/content/pages/guest-guide";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -14,37 +16,50 @@ export default function GuestGuidePage() {
   return (
     <section className="px-6 py-[72px]">
       <div className="mx-auto max-w-[760px]">
+        <PageBreadcrumb items={[{ label: "Home", href: "/" }, { label: "Guest Guide" }]} />
         <PageHero
           eyebrow={guestGuideContent.eyebrow}
           title={guestGuideContent.title}
           description={guestGuideContent.intro}
         />
 
-        <div className="prose-sppc mt-10">
-          <h2 className="font-display text-xl text-ink">
-            {guestGuideContent.whatToExpectTitle}
-          </h2>
-          <p>{guestGuideContent.whatToExpect}</p>
-        </div>
+        <Card className="mt-10">
+          <CardHeader>
+            <CardTitle className="font-display text-xl">
+              {guestGuideContent.whatToExpectTitle}
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="prose-sppc">
+            <p>{guestGuideContent.whatToExpect}</p>
+          </CardContent>
+        </Card>
 
-        <div className="mt-8 space-y-4">
-          <h2 className="font-display text-xl text-ink">
-            {guestGuideContent.guestExpectationsTitle}
-          </h2>
+        <Separator className="my-10" />
+
+        <div className="space-y-4">
+          <h2 className="font-display text-xl">{guestGuideContent.guestExpectationsTitle}</h2>
           {guestGuideContent.guestExpectations.map((item) => (
             <Card key={item.title}>
-              <h3 className="font-display text-lg">{item.title}</h3>
-              <p className="prose-sppc mt-2">{item.description}</p>
+              <CardHeader>
+                <CardTitle className="font-display text-lg">{item.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="prose-sppc">
+                <p>{item.description}</p>
+              </CardContent>
             </Card>
           ))}
         </div>
 
-        <div className="prose-sppc mt-8">
-          <h2 className="font-display text-xl text-ink">
-            {guestGuideContent.afterServiceTitle}
-          </h2>
-          <p>{guestGuideContent.afterService}</p>
-        </div>
+        <Card className="mt-10">
+          <CardHeader>
+            <CardTitle className="font-display text-xl">
+              {guestGuideContent.afterServiceTitle}
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="prose-sppc">
+            <p>{guestGuideContent.afterService}</p>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

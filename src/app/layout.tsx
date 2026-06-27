@@ -3,6 +3,7 @@ import { Fraunces, Source_Sans_3 } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { siteConfig } from "@/content/site";
+import { cn } from "@/lib/utils";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -33,8 +34,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${sourceSans.variable} h-full`}>
-      <body className="flex min-h-full flex-col antialiased">
+    <html
+      lang="en"
+      className={cn("h-full scroll-smooth font-sans", fraunces.variable, sourceSans.variable)}
+    >
+      <body className="flex min-h-full flex-col">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

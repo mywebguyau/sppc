@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Card } from "@/components/ui/Card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { homeContent } from "@/content/pages/home";
 
@@ -7,7 +7,7 @@ export function MinistriesTeaser() {
   const { ministriesTeaser } = homeContent;
 
   return (
-    <section className="px-6 py-[72px]">
+    <section className="bg-muted/40 px-6 py-[72px]">
       <div className="mx-auto max-w-[1100px]">
         <div className="mb-10 max-w-[620px]">
           <Eyebrow>{ministriesTeaser.eyebrow}</Eyebrow>
@@ -19,8 +19,14 @@ export function MinistriesTeaser() {
         <div className="grid gap-5 md:grid-cols-3">
           {ministriesTeaser.cards.map((card) => (
             <Card key={card.title}>
-              <h3 className="font-display text-[16.5px]">{card.title}</h3>
-              <p className="mt-1.5 text-sm text-ink-soft">{card.description}</p>
+              <CardHeader>
+                <CardTitle className="font-display text-[16.5px]">{card.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-[15px] text-foreground">
+                  {card.description}
+                </CardDescription>
+              </CardContent>
             </Card>
           ))}
         </div>
